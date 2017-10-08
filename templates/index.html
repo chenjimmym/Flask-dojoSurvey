@@ -8,6 +8,13 @@
 </head>
 
 <body>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          {% for message in messages %}
+            <p>{{message}}</p>
+          {% endfor %}
+        {% endif %}
+    {% endwith %}
     <form action="/name" method="post">
         Your name:
         <input type="text" name="name"><br><br>
@@ -22,8 +29,8 @@
             <option value="Javascript">Javascript</option>
         </select>
         Comment (Optional):<br><br>
-        <textarea name="comment" rows="4" cols="50">
-        </textarea><br><br>
+        <textarea name="comment" rows="4" cols="50"></textarea>
+        <br><br>
         <input type="submit" value="Submit"><br>
     </form>
 </body>
